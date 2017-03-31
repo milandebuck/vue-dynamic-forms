@@ -1,0 +1,1 @@
+export * from './dist/dynamc-form.js'

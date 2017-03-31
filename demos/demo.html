@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+</head>
+<body>
+	<div id="app">
+		<h1>Demo form</h1>
+		<dynamic-form :formdata=""></dynamic-form>	
+	</div>
+</body>
+<script>
+	import dynamicForm from './..'
+	const app = new Vue({
+    	el: '#app',
+    	components:{
+    		dynamicForm
+    	},
+    	data(){
+    		return{
+    			formdata
+    		}
+    	}
+	});
+
+</script>
+</html>

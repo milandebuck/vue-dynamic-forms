@@ -2,7 +2,7 @@
   "name": "vue-dynamic-forms",
   "version": "0.1.0",
   "description": "a dynamic form component for Vue.js",
-  "main": "./dist/dynamic-form.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config=webpack.config.js",
@@ -15,9 +15,12 @@
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.2.2",
     "css-loader": "^0.28.0",
-    "vue": "^2.2.6",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
     "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "vue": "^2.2.6"
   }
 }
