@@ -23,7 +23,7 @@ add the component to the `components ` section of your Vue component
 
 <script>
 //import the library
-import dynamicForm from 'vue-dynamic-form'
+import dynamicForm from 'vue-dynamic-forms'
 
 import { createDemo } from './config'
 
