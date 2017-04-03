@@ -11,7 +11,7 @@
   "author": "Milan De Buck",
   "repository" :
   { "type" : "git"
-  , "url" : "https://github.com/npm/npm.git"
+  , "url" : "https://github.com/milandebuck/vue-dynamic-forms.git"
   },
   "license": "MIT",
   "devDependencies": {
