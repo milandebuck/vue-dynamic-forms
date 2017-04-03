@@ -1,6 +1,6 @@
 {
   "name": "vue-dynamic-forms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a dynamic form component for Vue.js",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,9 @@
     "prod": "webpack -p --config=webpack.config.js"
   },
   "author": "Milan De Buck",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/milandebuck/vue-dynamic-forms.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milandebuck/vue-dynamic-forms.git"
   },
   "license": "MIT",
   "devDependencies": {
