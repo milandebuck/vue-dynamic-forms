@@ -2,7 +2,7 @@
   "name": "vue-dynamic-forms",
   "version": "0.1.1",
   "description": "a dynamic form component for Vue.js",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config=webpack.config.js",

@@ -6,7 +6,7 @@ require('babel-loader')
 module.exports = {
 	entry: './src/index.js',
   	output: {
-    	filename: 'dynamic-form.js',
+    	filename: 'main.js',
     	path: path.resolve(__dirname, 'dist')
   	},
   	module:{
