@@ -9,6 +9,10 @@
     "prod": "webpack -p --config=webpack.config.js"
   },
   "author": "Milan De Buck",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/npm/npm.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
