@@ -19,7 +19,9 @@
 </template>
 
 <script>
+//added the form class
 import { Form } from './classes/Form'
+//added the dynamic input component
 import dynamicInput  from './dynamic-input.vue'
 export default {
 

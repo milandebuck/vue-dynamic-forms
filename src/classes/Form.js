@@ -1,3 +1,6 @@
+/*
+* based upon https://github.com/laracasts/Vue-Forms
+*/
 import axios from 'axios'
 import { Errors } from './Errors';
 
@@ -16,7 +19,7 @@ export class Form{
     //fetch form data and restructure it to create a key-value based payload
     data() {
         let data = {};
-        for (let property in this.originalData) {
+        for (let prop in this.originalData) {
             data[this[property].name] = this[property].value;
         }
         return data;

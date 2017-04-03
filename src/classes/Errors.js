@@ -1,3 +1,6 @@
+/*
+* based upon https://github.com/laracasts/Vue-Forms
+*/
 export class Errors{
 
 	//constructor
