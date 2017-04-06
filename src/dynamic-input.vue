@@ -1,6 +1,6 @@
-<template>
+mr<template>
 	<div class="dynamic-input-wrapper">
-		<label  v-show="param.type !=='hidden'" :for="param.name" >{{param.label}}</label>
+		<label  v-show="(param.type !=='hidden') || (param.type !=='radio')" :for="param.name" >{{param.label}}</label>
 		
 		<!-- start input type if -->
 
@@ -34,9 +34,31 @@
 			<textarea v-else-if="param.type === 'textarea'" :class="param.class" :name="param.name" v-model="param.value"></textarea>
 
 			<!-- select -->
-			<select v-else-if="param.type =='select'" :class="param.class" :name="param.name" v-model="param.value" >
+			<select v-else-if="param.type ==='select'" :class="param.class" :name="param.name" v-model="param.value" >
 				<option v-for="option in param.options" value="option">{{option}}</option>
 			</select>
+
+			<!-- Radio -->
+			<div v-else-if="param.type === 'radio'">
+				<h4>param.title</h4>			
+				<div  v-for="option in options">
+					<input  :class="param.class" type="radio" :name="param.name" v-model="param.value" value="option" id="option">
+					<label :for="option"></label>
+				</div>
+			</div>
+			
+
+
+			<!-- Checkbox -->
+			<input v-else-if="param.type === 'checkbox'" :class="param.class" type="checkbox" :name="param.name" v-model="param.value">
+
+
+			<!-- Checkboxgroup -->
+			<div v-else-if="param.type === 'checkgroup'">
+				<h4>param.title</h4>
+				
+			</div>
+
 
 		<!-- end input type if -->
 

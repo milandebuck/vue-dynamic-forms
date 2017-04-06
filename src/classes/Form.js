@@ -20,7 +20,7 @@ export class Form{
     data() {
         let data = {};
         for (let prop in this.originalData) {
-            data[this[property].name] = this[property].value;
+            data[this[prop].name] = this[prop].value;
         }
         return data;
     }
