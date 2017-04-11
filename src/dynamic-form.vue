@@ -1,18 +1,11 @@
 <template>
 	<div class="dynamic-form-wrapper">
-		<!-- not an api call render a form with normal submission -->
-		<form v-if="!api" :method="formdata.type" :action="formdata.url">
-			<div class="form-group" v-for="param in formdata.params">
-				<dynamic-input :param="param" :error="form.errors.has(param.name) ? form.errors.get(param.name) : false"></dynamic-input> 
-			</div>
-			<input type="submit" class="btn btn-primary" :value="formdata.submit">
-		</form>
 		<!-- api call render form with onSubmit method -->
-		<form  v-else @submit.prevent='onSubmit'>
+		<form @submit.prevent='onSubmit'>
 			<div class="form-group" v-for="param in formdata.params">
 				<dynamic-input :param="param" :error="form.errors.has(param.name) ? form.errors.get(param.name) : false"></dynamic-input> 
 			</div>
-			<input type="submit" class="btn btn-primary" :value="formdata.submit">
+			<input type="submit" class="btn btn-primary" :value="formdata.submitText">
 		</form>
 	</div>
 
@@ -40,20 +33,18 @@ export default {
 		}
 	},
 	data () {
-
+		let newForm=new Form(this.formdata.params,this.formdata.options)
 		return {
-			form:new Form(this.formdata)
+			form:newForm
 		};
 	},
 	methods:{
-		//api submit
 		onSubmit(){
 			this.form.submit(this.formdata.type,this.formdata.url)
 			.then((response) => {
 				this.$emit('succes',{res:response,formdata:this.form.data()})
 			})
 			.catch((err) => {
-				console.log(err)
 				this.$emit('fail',err)
 			})
 		
