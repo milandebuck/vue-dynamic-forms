@@ -1,19 +1,19 @@
 /*
 * based upon https://github.com/laracasts/Vue-Forms
 */
-import axios from 'axios'
 import { Errors } from './Errors';
 
 
 export class Form{
 
 	//constructor
-	constructor(data) {
+	constructor(data,headers = new Headers()) {
         this.originalData = data;
         for (let field in data) {
             this[field] = data[field];
         }
         this.errors = new Errors();
+        this.headers = headers
     }
 
     //fetch form data and restructure it to create a key-value based payload
@@ -35,11 +35,14 @@ export class Form{
 
     //submit a form
     submit(requestType, url) {
+        let fetchData= {
+            method:requestType.toUpperCase(),
+            body:this.data(),
+        }
         return new Promise((resolve, reject) => {
-            axios[requestType](url, this.data())
+            fetch(url, fetchData)
                 .then(response => {
                     //resest the form state
-                    this.onSuccess(response.data);
                     resolve(response.data);
                 })
                 .catch(error => {
@@ -48,11 +51,6 @@ export class Form{
                     reject(error.response.data);
                 });
         });
-    }
-
-    //handle succesfull request
-    onSuccess(data) {
-        console.log('succes');
     }
 
     //handle failed request

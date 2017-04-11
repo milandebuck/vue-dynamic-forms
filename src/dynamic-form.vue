@@ -34,34 +34,15 @@ export default {
 			required:true,
 			type:Object
 		},
-		api:{
-			type:Boolean,
-			required:false,
-			default:true
-		},
 		errors:{
 			type:Object,
 			required:false,
 		}
 	},
 	data () {
-		//create a new form based on the props
-		let newForm=new Form(this.formdata.params);
-		if(window.csrfToken && !this.api){
-			let csrfparam={
-				type:'hidden',
-				value:window.csrfToken,
-				name:'_token',
-				label:''
-			}
-			this.formdata.params.push(csrfparam)
-			console.log(this.formdata.url + "token setted")
-			console.log(this.formdata.params)
-		}
-		// set errors to error object on a normal submit
-		if(!this.api && this.errors)newForm.onFail(this.errors);
+
 		return {
-			form:newForm
+			form:new Form(this.formdata)
 		};
 	},
 	methods:{
@@ -69,7 +50,6 @@ export default {
 		onSubmit(){
 			this.form.submit(this.formdata.type,this.formdata.url)
 			.then((response) => {
-				console.log(response);
 				this.$emit('succes',{res:response,formdata:this.form.data()})
 			})
 			.catch((err) => {

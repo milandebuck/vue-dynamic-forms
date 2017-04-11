@@ -60,8 +60,6 @@ export fuction createDemo(){
 		url:'/login',
 		//http request type(string) required
 		type:'post',
-		//legacy form submitting(false) or submit to the api(true -default) 
-		api:false,
 		//text of the submit button(string) 
 		submit:'Login',
 		//input fields needed required
