@@ -7,7 +7,7 @@ import { Errors } from './Errors';
 export class Form{
 
 	//constructor
-	constructor(data,headers = new Headers()) {
+	constructor(data) {
         this.originalData = data;
         for (let field in data) {
             this[field] = data[field];
@@ -34,11 +34,12 @@ export class Form{
     }
 
     //submit a form
-    submit(requestType, url) {
+    submit(requestType,url) {
         let fetchData= {
             method:requestType.toUpperCase(),
             body:this.data(),
         }
+
         return new Promise((resolve, reject) => {
             fetch(url, fetchData)
                 .then(response => {
