@@ -1,11 +1,12 @@
 <template>
 	<div class="dynamic-form-wrapper">
 		<!-- api call render form with onSubmit method -->
+		<h3 v-show="config.title">{{config.title}}</h3>
 		<form @submit.prevent='onSubmit'>
-			<div class="form-group" v-for="param in formdata.params">
-				<dynamic-input :param="param" :error="form.errors.has(param.name) ? form.errors.get(param.name) : false"></dynamic-input> 
+			<div class="form-group" v-for="input in config.inputs">
+				<dynamic-input :input="input" :error="form.errors.has(input.name) ? form.errors.get(input.name) : false"></dynamic-input> 
 			</div>
-			<input type="submit" class="btn btn-primary" :value="formdata.submitText || 'Submit'">
+			<input type="submit" class="btn btn-primary" :value="config.submitText || 'Submit'">
 		</form>
 	</div>
 
@@ -23,26 +24,22 @@ export default {
 		dynamicInput
 	},
 	props:{
-		formdata:{
+		config:{
 			required:true,
 			type:Object
-		},
-		errors:{
-			type:Object,
-			required:false,
 		}
 	},
 	data () {
-		let newForm=new Form(this.formdata.params,this.formdata.options)
+		let newForm=new Form(this.config.inputs,this.config.request)
 		return {
 			form:newForm
 		};
 	},
 	methods:{
 		onSubmit(){
-			this.form.submit(this.formdata.type,this.formdata.url)
+			this.form.submit()
 			.then((response) => {
-				this.$emit('succes',{res:response,formdata:this.form.data()})
+				this.$emit('succes',{res:response,data:this.form.data()})
 			})
 			.catch((err) => {
 				this.$emit('fail',err)

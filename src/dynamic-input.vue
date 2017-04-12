@@ -1,6 +1,6 @@
 mr<template>
 	<div class="dynamic-input-wrapper">
-		<label  v-show="(param.type !=='hidden') || (param.type !=='radio')" :for="param.name" >{{param.label}}</label>
+		<label  v-show="param.label" :for="param.name" >{{param.label}}</label>
 		
 		<!-- start input type if -->
 
@@ -16,7 +16,7 @@ mr<template>
 			<input v-else-if="param.type === 'text'" :class="param.class" type="text" :name="param.name" v-model="param.value">
 
 			<!-- date input -->
-			<input v-else-if="param.type === 'date'" :class="param.class" type="date" :name="param.name" v-model="param.value">
+			<input v-else-if="param.type === 'date'" :class="param.class" type="date" :name="param.name" v-model="param.value" :>
 
 			<!-- number input -->
 			<input v-else-if="param.type === 'number'" :class="param.class" type="number" :name="param.name" v-model="param.value">

@@ -5,7 +5,7 @@ import { Errors } from './Errors';
 
 /**
  * @class creates a new Form Objext
- * @param {Array} params - A list of all the required form fields with initial values form more info see the params section
+ * @param {Array} inputs - A list of all the required form fields with initial values form more info see the params section
  * @param {Object} request - A object containing an optional the configuration for the requests (optional)
  * @param {Headers} request.headers - A Javascript Headers object containing custom headers (optional)
  * @param {String} request.credentials - set credentials option in the request (optional) default value='omit'
@@ -15,11 +15,12 @@ import { Errors } from './Errors';
 export class Form{
 
 	//constructor
-	constructor(params,request= {}){
+	constructor(inputs,request= {}){
 		//set custom http headers
-		this.headers=request.headers || new Headers()
-		this.headers.append('Content-Type','application/json')
-		this.headers.append('Accept','application/json')
+		this.headers=request.headers || new Headers({
+			'Content-Type':'application/json',
+			'Accept':'application/json'
+		})
 
 		//allow for custom credentials
 		this.credentials= request.credentials || 'omit'
@@ -31,8 +32,8 @@ export class Form{
 		this.method = request.method || 'post'
 
 
-		this.originalData = params;
-		for (let field in params) {
+		this.originalData = inputs;
+		for (let field in inputs) {
 			this[field] = data[field];
 		}
 		this.errors = new Errors();
