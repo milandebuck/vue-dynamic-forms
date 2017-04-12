@@ -1,6 +1,9 @@
 /*
 * based upon https://github.com/laracasts/Vue-Forms
 */
+/**
+ * @class creates an Error object
+ */
 export class Errors{
 
 	//constructor
@@ -8,28 +11,44 @@ export class Errors{
 		this.errors = {};
 	}
 
-	//check if an error exits for a specific field
+	/**
+	 * Check if an error exists
+	 * @param {String} field - the name of the field you are looking for
+	 * 
+	 */
 	has(field){
 		return this.errors.hasOwnProperty(field);
 	}
 
-	//check for errors
+	/**
+	 * Check if there are any Errors
+	 * @returns {Boolean} boolean 
+	 */
 	any(){
 		return Objects.keys(this.errors) > 0;
 	}
 
-	//get an error
+	/**
+	 * get an Error for a particular field
+	 * @param {String} field - the name of the field you are looking for
+	 * @returns if exists returns the error else returns false
+	 */
 	get(field){
 		if(this.errors[field]) return this.errors[field];
 		return false;
 	}
 
-	//set errors
+	/**
+	 * Sets the error Object
+	 * @param Errors - errors
+	 */
 	set(err){
 		this.errors=err;
 	}
 
-	//clear errors
+	/**
+	 * Clear all the erros
+	 */
 	clear(){
 		this.erros={};
 	}

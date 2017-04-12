@@ -3,34 +3,45 @@
 */
 import { Errors } from './Errors';
 
-
+/**
+ * @class creates a new Form Objext
+ * @param {Array} params - A list of all the required form fields with initial values form more info see the params section
+ * @param {Object} request - A object containing an optional the configuration for the requests (optional)
+ * @param {Headers} request.headers - A Javascript Headers object containing custom headers (optional)
+ * @param {String} request.credentials - set credentials option in the request (optional) default value='omit'
+ * @param {String} request.url - The url which the form will be send to (optional) default value = ''(self)
+ * @param {String} request.method - The method of the request (optional) default value = 'post'
+*/
 export class Form{
 
 	//constructor
-	constructor(data,options){
+	constructor(params,request= {}){
 		//set custom http headers
-		this.headers=options.headers || new Headers()
+		this.headers=request.headers || new Headers()
 		this.headers.append('Content-Type','application/json')
 		this.headers.append('Accept','application/json')
 
 		//allow for custom credentials
-		this.credentials= options.credentials || 'omit'
+		this.credentials= request.credentials || 'omit'
 
 		//post url
-		this.url = options.url || ''
+		this.url = request.url || ''
 
 		//method of the form
-		this.method = options.method || 'post'
+		this.method = request.method || 'post'
 
 
-		this.originalData = data;
-		for (let field in data) {
+		this.originalData = params;
+		for (let field in params) {
 			this[field] = data[field];
 		}
 		this.errors = new Errors();
 	}
 
-	//fetch form data and restructure it to create a formData object
+	/**
+	* groups all form values in a formData object
+	* @returns {FormData} data - a FormData object containing all form values
+	*/
 	data() {
 		let data = new FormData()
 		for (let prop in this.originalData) {
@@ -39,7 +50,9 @@ export class Form{
 		return data;
 	}
 
-	//reset all form fields
+	/**
+	 *Resets all values in the form + clears the errors
+	*/
 	reset() {
 		for (let field in this.originalData) {
 			this[field] = '';
@@ -47,7 +60,10 @@ export class Form{
 		this.errors.clear();
 	}
 
-	//submit a form
+	/**
+	 * Submit the form with the current values
+	 * @returns {Promise} - promise based on the succes or failure of a request done with the fetch API
+	 */
 	submit() {
 		let fetchData= {
 			method:this.method,
@@ -71,7 +87,10 @@ export class Form{
 
 	}
 
-	//handle failed request
+	/**
+	 * Sets the Errors of the form
+	 * @param {Array} errors - An array containing error objects
+	*/
 	onFail(errors) {
 		this.errors.set(errors);
 	}

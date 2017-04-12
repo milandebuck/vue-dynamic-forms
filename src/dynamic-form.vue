@@ -5,7 +5,7 @@
 			<div class="form-group" v-for="param in formdata.params">
 				<dynamic-input :param="param" :error="form.errors.has(param.name) ? form.errors.get(param.name) : false"></dynamic-input> 
 			</div>
-			<input type="submit" class="btn btn-primary" :value="formdata.submitText">
+			<input type="submit" class="btn btn-primary" :value="formdata.submitText || 'Submit'">
 		</form>
 	</div>
 
