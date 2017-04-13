@@ -15,12 +15,6 @@
 			<!-- text input -->
 			<input v-else-if="input.type === 'text'" :class="input.class" type="text" :name="input.name" v-model="input.value">
 
-			<!-- date input -->
-			<input v-else-if="input.type === 'date'" :class="input.class" type="date" :name="input.name" v-model="input.value">
-
-			<!-- number input -->
-			<input v-else-if="input.type === 'number'" :class="input.class" type="number" :name="input.name" v-model="input.value">
-
 			<!-- phone input -->
 			<input v-else-if="input.type === 'tel'" :class="input.class" type="tel" :name="input.name" v-model="input.value">
 
@@ -29,6 +23,12 @@
 
 			<!-- password input -->
 			<input v-else-if="input.type === 'password'" :class="input.class" type="password" :name="input.name" v-model="input.value">
+
+			<!-- date input -->
+			<input v-else-if="input.type === 'date'" :class="input.class" type="date" :name="input.name" :min="input.min" :max="input.max" v-model="input.value">
+
+			<!-- number input -->
+			<input v-else-if="input.type === 'number'" :class="input.class" type="number" :name="input.name" :min="input.min" :max="input.max" :step="input.step" v-model="input.value">
 
 			<!-- textarea -->
 			<textarea v-else-if="input.type === 'textarea'" :class="input.class" :name="input.name" v-model="input.value"></textarea>
@@ -67,8 +67,6 @@
 	</div>
 </template>
 <script>
-import { Input } from './classes'
-
 export default {
   name: 'dynamic-input',
   props:{
@@ -77,7 +75,7 @@ export default {
   		default:false
   	},
   	input:{
-  		type:Input,
+  		type:Object,
   		required:true
   	}
   },
