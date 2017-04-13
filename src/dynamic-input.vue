@@ -1,4 +1,4 @@
-mr<template>
+<template>
 	<div class="dynamic-input-wrapper">
 		<label  v-show="input.label" :for="input.name" >{{input.label}}</label>
 		
@@ -16,7 +16,7 @@ mr<template>
 			<input v-else-if="input.type === 'text'" :class="input.class" type="text" :name="input.name" v-model="input.value">
 
 			<!-- date input -->
-			<input v-else-if="input.type === 'date'" :class="input.class" type="date" :name="input.name" v-model="input.value" :>
+			<input v-else-if="input.type === 'date'" :class="input.class" type="date" :name="input.name" v-model="input.value">
 
 			<!-- number input -->
 			<input v-else-if="input.type === 'number'" :class="input.class" type="number" :name="input.name" v-model="input.value">
@@ -66,10 +66,8 @@ mr<template>
 		<span v-if="error" v-text="error"></span>
 	</div>
 </template>
-
 <script>
 export default {
-
   name: 'dynamic-input',
   props:{
   	error:{

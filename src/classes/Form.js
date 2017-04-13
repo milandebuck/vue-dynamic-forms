@@ -34,7 +34,7 @@ export class Form{
 
 		this.originalData = inputs;
 		for (let field in inputs) {
-			this[field] = data[field];
+			this[field] = inputs[field];
 		}
 		this.errors = new Errors();
 	}
