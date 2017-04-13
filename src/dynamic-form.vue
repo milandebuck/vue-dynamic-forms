@@ -4,7 +4,7 @@
 		<h3 v-show="config.title">{{config.title}}</h3>
 		<form @submit.prevent='onSubmit'>
 			<div class="form-group" v-for="input in config.inputs">
-				<dynamic-input :input="input" :error="form.errors.has(input.name) ? form.errors.get(input.name) : false"></dynamic-input> 
+				<dynamic-input :input="new Input(input)" :error="form.errors.has(input.name) ? form.errors.get(input.name) : false"></dynamic-input> 
 			</div>
 			<input type="submit" class="btn btn-primary" :value="config.submitText || 'Submit'">
 		</form>
@@ -14,7 +14,7 @@
 
 <script>
 //added the form class
-import { Form } from './classes/Form'
+import { Form,Input } from './classes'
 //added the dynamic input component
 import dynamicInput  from './dynamic-input.vue'
 export default {

@@ -138,7 +138,11 @@ export fuction createDemo(){
 }
 ``` 
 
- ### input support
+ ### input configuration
+
+ #### global configutation
+
+-	type 		
 
 **text**
 ```javascript

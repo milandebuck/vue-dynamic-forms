@@ -67,6 +67,8 @@
 	</div>
 </template>
 <script>
+import { Input } from './classes'
+
 export default {
   name: 'dynamic-input',
   props:{
@@ -75,7 +77,7 @@ export default {
   		default:false
   	},
   	input:{
-  		type:Object,
+  		type:Input,
   		required:true
   	}
   },
