@@ -3,11 +3,6 @@
 		<label  v-show="input.label" :for="input.name" >{{input.label}}</label>
 		
 		<!-- start input type if -->
-
-			<!-- file upload not supported yet -->
-			<div v-if="input.type === 'file'">
-				<span>not supported</span>
-			</div>
 			
 			<!-- hidden input -->
 			<input v-else-if="input.type === 'hidden'" :class="input.class" type="hidden" :name="input.name" v-model="input.value">
@@ -59,6 +54,10 @@
 				
 			</div>
 
+			<div v-else>
+				<span>not supported</span>
+			</div>
+
 
 		<!-- end input type if -->
 
@@ -67,6 +66,21 @@
 	</div>
 </template>
 <script>
+/**
+ * @Module Dynamic Input - all supported inputs
+ * @param {Object} input - an input configuration
+ * @param {String} input.type(Required) - The type of input supported inputtypes(text,email,password,hidden,tel,date,number,select,textarea)
+ * @param {String} input.name(Required) - The name of the input field
+ * @param {any} input.value(Optional) - The value of the input field
+ * @param {String} input.label(Optional) - The label of the input field 
+ * @param {String} input.class(Optional) - The Css class(es) of the input field
+ *  
+ * **Input specific parameters**
+ * @param input.min - minimum value of the input field(date,number)
+ * @param input.max - maximum value of the input field(date,number)
+ * @param {Number} input.step - increments of the value on increase & decrease(number)
+ * @param {Array} options - al the options in a selectbox
+*/
 export default {
   name: 'dynamic-input',
   props:{

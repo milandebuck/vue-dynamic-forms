@@ -11,6 +11,26 @@ import { Errors } from './Errors';
  * @param {String} request.credentials - set credentials option in the request (optional) default value='omit'
  * @param {String} request.url - The url which the form will be send to (optional) default value = ''(self)
  * @param {String} request.method - The method of the request (optional) default value = 'post'
+ *
+ * @module Dynamic forms component
+ * @param {Object} config the configuration of the whole form
+ * @see module:dynamic-input
+ * @see class:classes/Form.js
+ * @see clas:classes/Errors.js
+ *
+ ** @Module Dynamic Input - all supported inputs
+ * @param {Object} input - an input configuration
+ * @param {String} input.type(Required) - The type of input supported inputtypes(text,email,password,hidden,tel,date,number,select,textarea)
+ * @param {String} input.name(Required) - The name of the input field
+ * @param {any} input.value(Optional) - The value of the input field
+ * @param {String} input.label(Optional) - The label of the input field 
+ * @param {String} input.class(Optional) - The Css class(es) of the input field
+ *  
+ * **Input specific parameters**
+ * @param input.min - minimum value of the input field(date,number)
+ * @param input.max - maximum value of the input field(date,number)
+ * @param {Number} input.step - increments of the value on increase & decrease(number)
+ * @param {Array} options - al the options in a selectbox
 */
 export class Form{
 
