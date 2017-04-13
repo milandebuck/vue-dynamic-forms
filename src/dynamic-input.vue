@@ -5,7 +5,7 @@
 		<!-- start input type if -->
 			
 			<!-- hidden input -->
-			<input v-else-if="input.type === 'hidden'" :class="input.class" type="hidden" :name="input.name" v-model="input.value">
+			<input v-if="input.type === 'hidden'" :class="input.class" type="hidden" :name="input.name" v-model="input.value">
 			
 			<!-- text input -->
 			<input v-else-if="input.type === 'text'" :class="input.class" type="text" :name="input.name" v-model="input.value">
