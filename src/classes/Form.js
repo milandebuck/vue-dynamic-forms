@@ -44,9 +44,9 @@ export class Form{
 	* @returns {FormData} data - a FormData object containing all form values
 	*/
 	data() {
-		let data = new FormData()
+		let data = {}
 		for (let prop in this.originalData) {
-			data.append(this[prop].name,this[prop].value)
+			data[this[prop].name]=this[prop].value
 		}
 		return data;
 	}
@@ -66,9 +66,10 @@ export class Form{
 	 * @returns {Promise} - promise based on the succes or failure of a request done with the fetch API
 	 */
 	submit() {
+		console.log()
 		let fetchData= {
 			method:this.method,
-			body:this.data(),
+			body:JSON.stringify(this.data()),
 			headers:this.headers,
 			credentials:this.credentials
 		}
