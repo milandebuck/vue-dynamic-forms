@@ -11,7 +11,7 @@ import { Errors } from './Errors';
  * @param {String} request.credentials - set credentials option in the request (optional) default value='omit'
  * @param {String} request.url - The url which the form will be send to (optional) default value = ''(self)
  * @param {String} request.method - The method of the request (optional) default value = 'post'
-*/
+ */
 export class Form{
 
 	//constructor

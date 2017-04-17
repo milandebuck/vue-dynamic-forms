@@ -17,6 +17,13 @@
 import { Form } from './classes'
 //added the dynamic input component
 import dynamicInput  from './dynamic-input.vue'
+/**
+ * @module Dynamic forms component
+ * @param {Object} config the configuration of the whole form
+ * @see module:dynamic-input
+ * @see class:classes/Form.js
+ * @see clas:classes/Errors.js
+*/
 export default {
 
 	name: 'dynamic-form',
