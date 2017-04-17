@@ -1,6 +1,6 @@
 {
   "name": "vue-dynamic-forms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a dynamic form component for Vue.js",
   "main": "src/dynamic-form.vue",
   "scripts": {
