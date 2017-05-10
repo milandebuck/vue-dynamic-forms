@@ -6,7 +6,7 @@
 			<div class="form-group" v-for="input in config.inputs">
 				<dynamic-input :input="input" :error="form.errors.has(input.name) ? form.errors.get(input.name) : false"></dynamic-input> 
 			</div>
-			<input type="submit" class="btn btn-primary" :value="config.submitText || 'Submit'">
+			<input type="submit" :class="config.submitClass" :value="config.submitText || 'Submit'">
 		</form>
 	</div>
 
