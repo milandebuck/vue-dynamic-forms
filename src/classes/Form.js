@@ -78,7 +78,8 @@ export class Form{
 		return new Promise((resolve, reject) => {
 			fetch(this.url, fetchData)
 			.then(res => {
-				if(res.status === 422)res.json().then(res => {
+				console.log(res);
+				if(res.status === 422 || res.status === 401)res.json().then(res => {
 					this.onFail(res)
 					reject(res)
 				})
