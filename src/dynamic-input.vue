@@ -62,7 +62,10 @@
 		<!-- end input type if -->
 
 		<!-- error span -->
-		<span v-if="error" v-text="error"></span>
+		<ul v-if="error">
+			<li v-for="e in error">{{e}}</li>
+		</ul>
+		
 	</div>
 </template>
 <script>
