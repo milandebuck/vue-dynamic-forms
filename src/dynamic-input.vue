@@ -62,9 +62,13 @@
 		<!-- end input type if -->
 
 		<!-- error span -->
-		<ul v-if="error">
-			<li v-for="e in error">{{e}}</li>
-		</ul>
+		<div v-show="error">
+			<ul v-if="error instanceof Array">
+				<li v-for="e in error">{{e}}</li>
+			</ul>
+			<span v-else>{{error}}</span>
+		</div>
+		
 		
 	</div>
 </template>
@@ -89,7 +93,8 @@ export default {
   props:{
   	error:{
   		required:false,
-  		default:false
+  		default:false,
+  		type:Array
   	},
   	input:{
   		type:Object,
