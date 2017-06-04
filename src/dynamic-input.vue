@@ -53,6 +53,11 @@
 				<h4>input.title</h4>
 				
 			</div>
+			
+			<!-- multi select -->
+			<div v-else-if="input.type === 'multiselect'">
+				<multiselect v-model="input.value" :options="input.options || []" :trackBy="input.track" :multiple="true" :close-on-select="true" :clear-on-select="false" :hide-selected="true" :placeholder="placeholder || ''" :label="input.data_label" :show-labels="false"></multiselect>
+			</div>
 
 			<div v-else>
 				<span>not supported</span>
@@ -73,6 +78,9 @@
 	</div>
 </template>
 <script>
+
+import multiselect from 'vue-multiselect'
+
 /**
  * @Module Dynamic Input - all supported inputs
  * @param {Object} input - an input configuration
@@ -90,11 +98,13 @@
 */
 export default {
   name: 'dynamic-input',
+  components:{
+  	multiselect
+  },
   props:{
   	error:{
   		required:false,
   		default:false,
-  		type:Array
   	},
   	input:{
   		type:Object,
@@ -110,4 +120,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.dynamic-input-wrapper{
+	width:100%;
+}
+textarea{
+	resize:vertical;
+}
 </style>

@@ -21,6 +21,7 @@
     "css-loader": "^0.28.0",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
+    "vue-multiselect": "^2.0.0-beta.15",
     "webpack": "^2.3.2"
   },
   "dependencies": {
