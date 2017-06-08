@@ -37,10 +37,15 @@ export default {
 		}
 	},
 	data () {
-		let newForm=new Form(this.config.inputs,this.config.request)
 		return {
-			form:newForm
+			form:{}
 		};
+	},
+	watch:{
+		config(){
+			console.log(this.config)
+			this.form = new Form(this.config.inputs,this.config.request)
+		}
 	},
 	methods:{
 		onSubmit(){

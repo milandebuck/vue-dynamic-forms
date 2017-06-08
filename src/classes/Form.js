@@ -76,6 +76,8 @@ export class Form{
 
 
 		return new Promise((resolve, reject) => {
+			console.log(this.url)
+			console.log(this.method)
 			fetch(this.url, fetchData)
 			.then(res => {
 				console.log(res);
