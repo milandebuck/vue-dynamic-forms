@@ -38,7 +38,7 @@ export default {
 	},
 	data () {
 		return {
-			form:{}
+			form:new Form(this.config.inputs,this.config.request)
 		};
 	},
 	watch:{
