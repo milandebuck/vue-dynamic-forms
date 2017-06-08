@@ -43,7 +43,6 @@ export default {
 	},
 	watch:{
 		config(){
-			console.log(this.config)
 			this.form = new Form(this.config.inputs,this.config.request)
 		}
 	},

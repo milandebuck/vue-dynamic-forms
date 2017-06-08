@@ -66,7 +66,6 @@ export class Form{
 	 * @returns {Promise} - promise based on the succes or failure of a request done with the fetch API
 	 */
 	submit() {
-		console.log()
 		let fetchData= {
 			method:this.method,
 			body:JSON.stringify(this.data()),
@@ -76,11 +75,8 @@ export class Form{
 
 
 		return new Promise((resolve, reject) => {
-			console.log(this.url)
-			console.log(this.method)
 			fetch(this.url, fetchData)
 			.then(res => {
-				console.log(res);
 				if(res.status === 422 || res.status === 401)res.json().then(res => {
 					this.onFail(res)
 					reject(res)
