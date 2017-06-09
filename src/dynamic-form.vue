@@ -53,6 +53,7 @@ export default {
 				this.$emit('succes',{res:response,data:this.form.data()})
 			})
 			.catch((err) => {
+				console.error(err)
 				this.$emit('fail',err)
 			})
 		

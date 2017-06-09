@@ -30,7 +30,7 @@
 
 			<!-- select -->
 			<select v-else-if="input.type ==='select'" :class="input.class" :name="input.name" v-model="input.value" >
-				<option v-for="option in input.options" value="option">{{option}}</option>
+				<option v-for="option in input.options" :value="option.value ? option.value : option">{{option.label ? option.label : option}}</option>
 			</select>
 
 			<!-- Radio -->
