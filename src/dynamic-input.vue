@@ -29,7 +29,7 @@
 			<textarea v-else-if="input.type === 'textarea'" :class="input.class" :name="input.name" v-model="input.value"></textarea>
 
 			<!-- select -->
-			<select v-else-if="input.type ==='select'" :class="input.class" :name="input.name" v-model="input.value" >
+			<select v-else-if="input.type ==='select'" :class="input.class" :name="input.name" v-model="input.value" :selected="input.value">
 				<option v-for="option in input.options" :value="option.value ? option.value : option">{{option.label ? option.label : option}}</option>
 			</select>
 
