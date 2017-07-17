@@ -26,7 +26,7 @@
 			<input v-else-if="input.type === 'number'" :class="input.class" type="number" :name="input.name" :min="input.min" :max="input.max" :step="input.step" v-model="input.value">
 
 			<!-- textarea -->
-			<textarea v-else-if="input.type === 'textarea'" :class="input.class" :name="input.name" v-model="input.value"></textarea>
+			<textarea v-else-if="input.type === 'textarea'" :class="input.class" :name="input.name" v-model="input.value" :placeholder="input.placeholder"></textarea>
 
 			<!-- select -->
 			<select v-else-if="input.type ==='select'" :class="input.class" :name="input.name" v-model="input.value" :selected="input.value">
