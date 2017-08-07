@@ -1,6 +1,14 @@
 <template>
 	<div class="dynamic-input-wrapper">
 		<label  v-show="input.label" :for="input.name" >{{input.label}}</label>
+
+		<!-- error span -->
+		<div v-show="error" class="error">
+			<ul v-if="error instanceof Array">
+				<li v-for="e in error">{{e}}</li>
+			</ul>
+			<span v-else>{{error}}</span>
+		</div>
 		
 		<!-- start input type if -->
 			
@@ -65,14 +73,6 @@
 
 
 		<!-- end input type if -->
-
-		<!-- error span -->
-		<div v-show="error">
-			<ul v-if="error instanceof Array">
-				<li v-for="e in error">{{e}}</li>
-			</ul>
-			<span v-else>{{error}}</span>
-		</div>
 		
 		
 	</div>
@@ -120,6 +120,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+label{
+	float:left;
+}
+
+.error{
+	float:right;
+}
 .dynamic-input-wrapper{
 	width:100%;
 }
