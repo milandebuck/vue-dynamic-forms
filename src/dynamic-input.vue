@@ -67,6 +67,10 @@
 				<multiselect v-model="input.value" :options="input.options || []" :trackBy="input.track" :multiple="true" :close-on-select="true" :clear-on-select="false" :hide-selected="true" :label="input.data_label" :show-labels="false" :placeholder="input.placeholder"></multiselect>
 			</div>
 
+			<div v-else-if="input.type === 'datepicker'" :class="input.class">
+				<date-picker :class="input.class" :option="input.option" :date="{time:input.value}" :limit="input.limit" @change="changeDate"></date-picker>
+			</div>
+
 			<div v-else>
 				<span>not supported</span>
 			</div>
@@ -80,6 +84,7 @@
 <script>
 
 import multiselect from 'vue-multiselect'
+import  datePicker from 'vue-datepicker'
 
 /**
  * @Module Dynamic Input - all supported inputs
@@ -97,25 +102,31 @@ import multiselect from 'vue-multiselect'
  * @param {Array} options - al the options in a selectbox
 */
 export default {
-  name: 'dynamic-input',
-  components:{
-  	multiselect
-  },
-  props:{
-  	error:{
-  		required:false,
-  		default:false,
-  	},
-  	input:{
-  		type:Object,
-  		required:true
-  	}
-  },
-  data () {
-    return {
+	name: 'dynamic-input',
+	components:{
+		multiselect,
+		datePicker
+	},
+	props:{
+		error:{
+			required:false,
+			default:false,
+		},
+		input:{
+			type:Object,
+			required:true
+		}
+	},
+	data () {
+		return {
 
-    };
-  }
+		}
+	},
+	methods:{
+		changeDate(date){
+			this.input.value=date
+		}
+	}
 };
 </script>
 
