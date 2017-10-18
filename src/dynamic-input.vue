@@ -71,6 +71,10 @@
 				<date-picker :class="input.class" :option="input.option" :date="{time:input.value}" :limit="input.limit" @change="changeDate"></date-picker>
 			</div>
 
+			<div v-else-if="input.type === 'places'">
+				<places-input :options="{ name:input.name || '',className: input.class, options:input.options}" :content="input.value" @change="changePlace"></places-input>
+			</div>
+
 			<div v-else>
 				<span>not supported</span>
 			</div>
@@ -82,7 +86,7 @@
 	</div>
 </template>
 <script>
-
+import placesInput from './places-input'
 import multiselect from 'vue-multiselect'
 import  datePicker from 'vue-datepicker'
 
@@ -105,7 +109,8 @@ export default {
 	name: 'dynamic-input',
 	components:{
 		multiselect,
-		datePicker
+		datePicker,
+		placesInput
 	},
 	props:{
 		error:{
@@ -125,6 +130,9 @@ export default {
 	methods:{
 		changeDate(date){
 			this.input.value=date
+		},
+		changePlace(place){
+			this.input.value=place.location
 		}
 	}
 };
