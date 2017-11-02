@@ -42,12 +42,12 @@
 			</select>
 
 			<!-- Radio -->
-			<div v-else-if="input.type === 'radio'">
-				<h4>input.title</h4>			
-				<div  v-for="option in options">
-					<input  :class="input.class" type="radio" :name="input.name" v-model="input.value" value="option" id="option">
-					<label :for="option"></label>
-				</div>
+			<div v-else-if="input.type === 'radio'" :class="input.wrapperClass">
+				<h4 v-if="input.title">{{input.title}}</h4>			
+				<template  v-for="option in input.options">
+					<input  :class="input.class" type="radio" :name="option.name" v-model="input.value" :id="option.name" :value="option.value">
+					<label :for="option.name" v-html="option.label"></label>
+				</template>
 			</div>
 			
 
