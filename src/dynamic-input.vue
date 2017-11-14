@@ -64,7 +64,7 @@
 			
 			<!-- multi select -->
 			<div v-else-if="input.type === 'multiselect'">
-				<multiselect v-model="input.value" :options="input.options || []" :trackBy="input.track" :multiple="true" :close-on-select="true" :clear-on-select="false" :hide-selected="true" :label="input.data_label" :show-labels="false" :placeholder="input.placeholder"></multiselect>
+				<multiselect v-model="input.value" :options="input.options || []" :trackBy="input.track" :multiple="true" :close-on-select="true" :clear-on-select="false" :hide-selected="true" :label="input.data_label" :show-labels="false" :placeholder="input.placeholder" :class="input.class"></multiselect>
 			</div>
 
 			<div v-else-if="input.type === 'datepicker'" :class="input.class">
