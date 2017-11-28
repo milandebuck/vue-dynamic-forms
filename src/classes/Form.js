@@ -94,6 +94,6 @@ export class Form{
 	 * @param {Array} errors - An array containing error objects
 	*/
 	onFail(errors) {
-		this.errors.set(errors);
+		this.errors.set(errors.errors);
 	}
 }

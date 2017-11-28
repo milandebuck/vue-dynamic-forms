@@ -115,7 +115,6 @@ export default {
 	props:{
 		error:{
 			required:false,
-			default:false,
 		},
 		input:{
 			type:Object,
