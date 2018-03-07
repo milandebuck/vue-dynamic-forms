@@ -75,6 +75,11 @@
 				<places-input :options="{ name:input.name || '',className: input.class, options:input.options}" :content="input.value" @change="changePlace"></places-input>
 			</div>
 
+            <div v-else-if="input.type === 'tinymce'">
+                <br>
+                <tinymce :other_options="input.other_options" :id="input.name" :class="input.class" :options="input.options" :name="input.name" v-model="input.value" :placeholder="input.placeholder"></tinymce>
+            </div>
+
 			<div v-else>
 				<span>not supported</span>
 			</div>
@@ -88,7 +93,8 @@
 <script>
 import placesInput from './places-input'
 import multiselect from 'vue-multiselect'
-import  datePicker from 'vue-datepicker'
+import datePicker from 'vue-datepicker'
+import tinymce from 'vue-tinymce-editor'
 
 /**
  * @Module Dynamic Input - all supported inputs
@@ -110,7 +116,8 @@ export default {
 	components:{
 		multiselect,
 		datePicker,
-		placesInput
+		placesInput,
+		tinymce
 	},
 	props:{
 		error:{
