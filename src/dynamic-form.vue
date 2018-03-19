@@ -56,7 +56,6 @@ export default {
 				console.error(err)
 				this.$emit('fail',err)
 			})
-		
 		},
 		multiSelectNoResults() {
 				this.$emit('multiSelectNoResults')
