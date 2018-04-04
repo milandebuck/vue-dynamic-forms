@@ -81,8 +81,10 @@ export class Form{
 					this.onFail(res)
 					reject(res)
 				})
-
-				else res.json().then(resolve)
+                else res.json().then(res =>{
+                    this.errors.clear()
+                    resolve(res)
+                })
 			})
 			.catch(reject)
 		})
