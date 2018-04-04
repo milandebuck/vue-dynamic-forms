@@ -50,7 +50,7 @@ export class Errors{
 	 * Clear all the erros
 	 */
 	clear(){
-		this.erros={};
+		this.errors={};
 	}
 
 
